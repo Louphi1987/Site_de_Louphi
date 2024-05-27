@@ -7,7 +7,7 @@
     <!-- Rappel: Pour le choix des couleurs à appliquer (codes), aller voir le site avec le panneau de couleur https://www.color-hex.com/ -->
     <title>Mon Site</title>
     <script>
-        window.location.href = '#historique';
+        window.location.href = '#Accueil';
     </script>
     <style>
         body {
@@ -34,6 +34,17 @@
             background-color: #2e482e; /* Fond vert foncé */
             padding: 20px;
             text-align: center;
+        }
+        
+        .citation {
+            font-family: "Apple Chancery", cursive;
+            font-size: 22px;
+            text-align: center;
+            margin-top: 20px; 
+        }
+
+        h2 {
+            margin-bottom: 80px; /* Ajustez cette valeur pour ajouter plus ou moins d'espace. Par exemple, 40px pour deux lignes. */
         }
 
         #oeuvres #oeuvres-couverture,
@@ -112,7 +123,7 @@
 </head>
 <body>
        <div id="header">
-        <a href="#historique" class="menu-link">Historique</a>
+        <a href="#accueil" class="menu-link">Accueil</a>
         <a href="#oeuvres" class="menu-link">Oeuvres</a>
         <a href="#projets" class="menu-link">Projets</a>
         <a href="#contacts" class="menu-link">Contacts</a>  
@@ -120,10 +131,16 @@
 
 
     <!-- Section Historique -->
-    <div id="historique" class="section">
+    <div id="accueil" class="section">
         <h2>Citations</h2>
-        <p>“L'art vole autour de la vérité, mais avec la volonté bien arrêtée de ne pas se brûler.” (Kafka)</p>
-        <p> "L'art est un mensonge qui dit la vérité." (Flaubert)</p>
+        <p class="citation">"L'art vole autour de la vérité, mais avec la volonté bien arrêtée de ne pas se brûler." (Kafka)</p>
+        <p class="citation">"Le plus haut dans l'art, ce n'est ni de faire rire, ni de faire pleurer, ni de nous mettre en rut ou en fureur, mais d'agir à la façon de la nature, c'est-à-dire de faire rêver." (Flaubert)</p>
+        <p class="citation">"L'art sauvera le monde." (Dostoïevski)</p>
+        
+        <div style="text-align: center;">
+            <img src="static/Finial.png" alt="Finial" style="width: 200px; height: auto;">
+        </div>
+        
     </div>
 
     <!-- Section Oeuvres -->
