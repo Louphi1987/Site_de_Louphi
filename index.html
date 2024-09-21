@@ -40,7 +40,7 @@
             font-family: "Apple Chancery", cursive;
             font-size: 22px;
             text-align: center;
-            margin-top: 20px; 
+            margin-top: 20px;
         }
 
         h2 {
@@ -126,7 +126,7 @@
         <a href="#accueil" class="menu-link">Accueil</a>
         <a href="#oeuvres" class="menu-link">Oeuvres</a>
         <a href="#projets" class="menu-link">Projets</a>
-        <a href="#contacts" class="menu-link">Contacts</a>  
+        <a href="#contacts" class="menu-link">Contacts</a>
     </div>
 
 
@@ -201,25 +201,40 @@
 
 
     <div id="contacts" class="section" style="border: 2px solid white; padding: 20px;">
-        <h2>Contact</h2>
-        <div style="max-width: 800px; margin: 0 auto; display: flex; align-items: center;">
-            <!-- Colonne droite pour le texte -->
-            <div style="flex: 1; text-align: left; padding-left: 20px;">
-                <p>Louis-Philippe Pirson</p>
-                <p>Mail : <a href="mailto:louisphilippe.oeuvres@gmail.com">louisphilippe.oeuvres@gmail.com</a></p>
-                <!-- Zone de texte pour les avis/remarques -->
-                <form action="/submit_feedback" method="post">
-                    <label for="feedback">Vos avis/remarques :</label><br>
-                    <textarea id="feedback" name="feedback" rows="4" cols="50"></textarea><br>
-                    <button type="submit">Envoyer</button>
-                </form>
+    <h2>Contact</h2>
+    <div style="max-width: 800px; margin: 0 auto; display: flex; align-items: center;">
+        <!-- Colonne droite pour le texte -->
+        <div style="flex: 1; text-align: left; padding-left: 20px;">
+            <p style="font-size: 24px; font-weight: bold; font-style: italic;">Louis-Philippe Pirson</p>
+            
+            <!-- Ajout du rectangle brun pour commander le livre -->
+            <div style="margin-top: 20px;">
+                <a href="https://www.lysbleueditions.com/produit/de-lautre-cote-du-pont/?gad_source=1&gclid=Cj0KCQjw3bm3BhDJARIsAKnHoVVyzycaDLytq5vkOgqjEbm8edUnRK6w6bXYcXihJX0ssit7damdJ5waAmUREALw_wcB"
+                   style="display: inline-block; background-color: #B8860B99; color: white; padding: 20px 40px; text-align: center; text-decoration: none; font-size: 20px; font-weight: bold; border-radius: 5px;"
+                   onmouseover="this.style.backgroundColor='#B8860B';" onmouseout="this.style.backgroundColor='#B8860B99';">
+                   CLIQUEZ ICI pour commander "De l'autre côté du pont"
+                </a>
             </div>
-            <!-- Colonne gauche pour l'image -->
-            <div style="flex: 1;">
-                <img src="static/Affiche.png" alt="Affiche" style="width: 100%;">
+            
+            <!-- QR Code (remplace 'static/qrcode.png' par l'URL de ton image QR code) -->
+            <div style="text-align: center; margin-top: 20px;">
+                <img src="static/qrcode.png" alt="QR Code" style="width: 150px; height: auto;">
+            </div>
+            <!-- Coordonnées de contact en dessous -->
+            <div style="margin-top: 20px;">
+                <p><strong>Coordonnées de Contact :</strong></p>
+                <p>Louis-Philippe Pirson</p>
+                <p>Email : <a href="mailto:louisphilippe.oeuvres@gmail.com">louisphilippe.oeuvres@gmail.com</a></p>
             </div>
         </div>
+            
+        
+        <!-- Colonne gauche pour l'image -->
+        <div style="flex: 1;">
+            <img src="static/Affiche.png" alt="Affiche" style="width: 100%;">
+        </div>
     </div>
+</div>
     
 
     <script>
@@ -266,7 +281,7 @@
 
         // Fonction pour mettre à jour l'image affichée pour La pierre
         function updateImageLaPierre() {
-            var imageElement = document.getElementById("gallery-image-la-pierre"); 
+            var imageElement = document.getElementById("gallery-image-la-pierre");
             imageElement.src = "static/La_pierre" + currentImageIndexLaPierre + ".jpeg";
             imageElement.alt = "La pierre " + currentImageIndexLaPierre;
         }
@@ -285,7 +300,7 @@
 
         // Fonction pour mettre à jour l'image affichée pour Roland
         function updateImageRoland() {
-            var imageElement = document.getElementById("gallery-image-roland"); 
+            var imageElement = document.getElementById("gallery-image-roland");
             imageElement.src = "static/Roland_" + currentImageIndexRoland + ".jpeg";
             imageElement.alt = "Roland " + currentImageIndexRoland;
         }

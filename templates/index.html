@@ -7,7 +7,7 @@
     <!-- Rappel: Pour le choix des couleurs à appliquer (codes), aller voir le site avec le panneau de couleur https://www.color-hex.com/ -->
     <title>Mon Site</title>
     <script>
-        window.location.href = '#historique';
+        window.location.href = '#Accueil';
     </script>
     <style>
         body {
@@ -34,6 +34,17 @@
             background-color: #2e482e; /* Fond vert foncé */
             padding: 20px;
             text-align: center;
+        }
+        
+        .citation {
+            font-family: "Apple Chancery", cursive;
+            font-size: 22px;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        h2 {
+            margin-bottom: 80px; /* Ajustez cette valeur pour ajouter plus ou moins d'espace. Par exemple, 40px pour deux lignes. */
         }
 
         #oeuvres #oeuvres-couverture,
@@ -112,18 +123,24 @@
 </head>
 <body>
        <div id="header">
-        <a href="#historique" class="menu-link">Historique</a>
+        <a href="#accueil" class="menu-link">Accueil</a>
         <a href="#oeuvres" class="menu-link">Oeuvres</a>
         <a href="#projets" class="menu-link">Projets</a>
-        <a href="#contacts" class="menu-link">Contacts</a>  
+        <a href="#contacts" class="menu-link">Contacts</a>
     </div>
 
 
     <!-- Section Historique -->
-    <div id="historique" class="section">
+    <div id="accueil" class="section">
         <h2>Citations</h2>
-        <p>“L'art vole autour de la vérité, mais avec la volonté bien arrêtée de ne pas se brûler.” (Kafka)</p>
-        <p> "L'art est un mensonge qui dit la vérité." (Flaubert)</p>
+        <p class="citation">"L'art vole autour de la vérité, mais avec la volonté bien arrêtée de ne pas se brûler." (Kafka)</p>
+        <p class="citation">"Le plus haut dans l'art, ce n'est ni de faire rire, ni de faire pleurer, ni de nous mettre en rut ou en fureur, mais d'agir à la façon de la nature, c'est-à-dire de faire rêver." (Flaubert)</p>
+        <p class="citation">"L'art sauvera le monde." (Dostoïevski)</p>
+        
+        <div style="text-align: center;">
+            <img src="static/Finial.png" alt="Finial" style="width: 200px; height: auto;">
+        </div>
+        
     </div>
 
     <!-- Section Oeuvres -->
@@ -133,10 +150,10 @@
         </div>
 
         <div style="text-align: center;">
-            <img id="oeuvres-couverture" class="couverture" src="{{ url_for('static', filename='Couverture.png') }}" alt="Couverture">
+            <img id="oeuvres-couverture" class="couverture" src="static/Couverture.png" alt="Couverture">
         </div>
         <div style="text-align: center;">
-            <img id="oeuvres-communique" class="communique" src="{{ url_for('static', filename='Communique.png') }}" alt="Communique">
+            <img id="oeuvres-communique" class="communique" src="static/Communique.png" alt="Communique">
         </div>
         <p>D'autres oeuvres seront à venir. N'hésitez pas à vous renseigner dans la rubrique projet pour les projets en cours.</p>
 
@@ -148,7 +165,7 @@
             <!-- Galerie de projet 1 -->
             <h3>Projet 1 - La pierre (bande dessinée)</h3>
             <div id="image-container-la-pierre">
-                <img id="gallery-image-la-pierre" src="{{ url_for('static', filename='La_pierre0.jpeg') }}" alt="La pierre 0">
+                <img id="gallery-image-la-pierre" src="static/La_pierre0.jpeg" alt="La pierre 0">
             </div>
             <button onclick="previousImageLaPierre()">Page précédente</button>
             <button onclick="nextImageLaPierre()">Page suivante</button>
@@ -157,7 +174,7 @@
         <div id="gallery-container-roland">
             <h3>Projet 2 - Roland (bande dessinée)</h3>
             <div id="image-container-roland">
-                <img id="gallery-image-roland" src="{{ url_for('static', filename='Roland_0.jpeg') }}" alt="Roland 0">
+                <img id="gallery-image-roland" src="static/Roland_0.jpeg" alt="Roland 0">
             </div>
             <button onclick="previousImageRoland()">Page précédente</button>
             <button onclick="nextImageRoland()">Page suivante</button>
@@ -165,19 +182,19 @@
         <!-- Galerie de projet 3 -->
         <div id="gallery-container-petko">
             <h3>Projet 3 - Petko (roman policier)</h3>
-            <p><a href="{{ url_for('static', filename='petko.pdf') }}" download>Télécharger le PDF</a></p>
+            <p><a href="static/petko.pdf" download>Télécharger le PDF</a></p>
             <!-- Afficher le PDF dans la page avec la possibilité de faire défiler les pages -->
             <div id="pdf-container-petko">
-                 <iframe src="{{ url_for('static', filename='petko.pdf') }}" style="width: 50%; height: 100vh; border: none;"></iframe>
+                 <iframe src="static/petko.pdf" style="width: 50%; height: 100vh; border: none;"></iframe>
             </div>
         </div>
         <!-- Galerie de projet 4 -->
         <div id="gallery-container-tunnel">
             <h3>Projet 4 - Au bout du tunnel (nouvelle)</h3>
-            <p><a href="{{ url_for('static', filename='Au_bout_du_tunnel.pdf') }}" download>Télécharger le PDF</a></p>
+            <p><a href="static/Au_bout_du_tunnel.pdf" download>Télécharger le PDF</a></p>
             <!-- Afficher le PDF dans la page avec la possibilité de faire défiler les pages -->
             <div id="pdf-container-tunnel">
-                <iframe src="{{ url_for('static', filename='Au_bout_du_tunnel.pdf') }}" style="width: 50%; height: 100vh; border: none;"></iframe>
+                <iframe src="static/Au_bout_du_tunnel.pdf" style="width: 50%; height: 100vh; border: none;"></iframe>
             </div>
         </div>
     </div>
@@ -199,7 +216,7 @@
             </div>
             <!-- Colonne gauche pour l'image -->
             <div style="flex: 1;">
-                <img src="{{ url_for('static', filename='Affiche.png') }}" alt="Affiche" style="width: 100%;">
+                <img src="static/Affiche.png" alt="Affiche" style="width: 100%;">
             </div>
         </div>
     </div>
@@ -249,8 +266,8 @@
 
         // Fonction pour mettre à jour l'image affichée pour La pierre
         function updateImageLaPierre() {
-            var imageElement = document.getElementById("gallery-image-la-pierre"); 
-            imageElement.src = "{{ url_for('static', filename='La_pierre') }}" + currentImageIndexLaPierre + ".jpeg";
+            var imageElement = document.getElementById("gallery-image-la-pierre");
+            imageElement.src = "static/La_pierre" + currentImageIndexLaPierre + ".jpeg";
             imageElement.alt = "La pierre " + currentImageIndexLaPierre;
         }
 
@@ -268,8 +285,8 @@
 
         // Fonction pour mettre à jour l'image affichée pour Roland
         function updateImageRoland() {
-            var imageElement = document.getElementById("gallery-image-roland"); 
-            imageElement.src = "{{ url_for('static', filename='Roland_') }}" + currentImageIndexRoland + ".jpeg";
+            var imageElement = document.getElementById("gallery-image-roland");
+            imageElement.src = "static/Roland_" + currentImageIndexRoland + ".jpeg";
             imageElement.alt = "Roland " + currentImageIndexRoland;
         }
 
