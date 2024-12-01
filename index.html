@@ -11,27 +11,27 @@
     </script>
     <style>
         body {
-            background-color: #2e482e; /* Fond vert foncé */
-            color: white; /* Texte blanc */
+            background-color: #2e482e;
+            color: white;
             margin: 0;
             padding: 0;
         }
 
         #header {
-            background-color: #1a1a1a; /* Couleur de fond de la bande */
-            color: white; /* Texte blanc */
+            background-color: #1a1a1a;
+            color: white;
             padding: 10px 0;
             text-align: center;
         }
 
         #header a {
-            color: white; /* Liens blancs */
-            text-decoration: none; /* Supprimer les soulignements */
-            margin: 0 20px; /* Marge entre les liens */
+            color: white;
+            text-decoration: none;
+            margin: 0 20px;
         }
 
         #title {
-            background-color: #2e482e; /* Fond vert foncé */
+            background-color: #2e482e;
             padding: 20px;
             text-align: center;
         }
@@ -44,79 +44,153 @@
         }
 
         h2 {
-            margin-bottom: 80px; /* Ajustez cette valeur pour ajouter plus ou moins d'espace. Par exemple, 40px pour deux lignes. */
+            margin-bottom: 80px;
         }
+        
+        h3 {
+            margin-bottom: 20px;
+            font-size: 28px;
+        }
+
 
         #oeuvres #oeuvres-couverture,
         #oeuvres #oeuvres-communique {
             width: 100%;
             height: auto;
             display: block;
-            margin: 20px auto; /* Marge pour centrer l'image */
+            margin: 20px auto;
         }
 
         #fin {
-            background-color: white; /* Fond blanc */
-            color: black; /* Texte noir */
+            background-color: white;
+            color: black;
             text-align: center;
             padding: 20px;
-            margin-top: 20px; /* Marge en haut */
+            margin-top: 20px;
         }
 
-        /* Styles pour La pierre */
         #image-container-la-pierre img {
             width: 50%;
             height: auto;
         }
 
         #image-container-la-pierre {
-            display: inline-block; /* Permet de centrer l'élément */
-            margin: 0 auto; /* Centre l'élément horizontalement */
+            display: inline-block;
+            margin: 0 auto;
         }
 
         #gallery-container-la-pierre {
-            margin: 0 auto; /* Centre le contenu horizontalement */
-            text-align: center; /* Centre le texte et les éléments à l'intérieur */
+            margin: 0 auto;
+            text-align: center;
         }
 
-        /* Styles pour Roland */
+      
         #image-container-roland img {
             width: 50%;
             height: auto;
         }
 
         #image-container-roland {
-            display: inline-block; /* Permet de centrer l'élément */
-            margin: 0 auto; /* Centre l'élément horizontalement */
+            display: inline-block;
+            margin: 0 auto;
         }
 
         #gallery-container-roland {
-            margin: 0 auto; /* Centre le contenu horizontalement */
-            text-align: center; /* Centre le texte et les éléments à l'intérieur */
+            margin: 0 auto;
+            text-align: center;
         }
 
-
-        #pdf-container-petko {
-            width: 100%;
-            margin: 0 auto; /* Centre le contenu horizontalement */
-            text-align: center; /* Centre le texte et les éléments à l'intérieur */
+        #image-container-petko img {
+            width: 180%;
+            height: auto;
+            position: relative;
+            left: -3.5cm;
         }
 
-
-        #pdf-container-tunnel {
-            width: 100%;
-            margin: 0 auto; /* Centre le contenu horizontalement */
-            text-align: center; /* Centre le texte et les éléments à l'intérieur */
+        #image-container-petko {
+            display: inline-block;
+            margin: 0 auto;
         }
-        
+
         #gallery-container-petko {
-            margin: 20px 0 auto; /* Centre le contenu horizontalement */
-            text-align: center; /* Centre le texte et les éléments à l'intérieur */
+            margin: 0 auto;
+            text-align: center;
         }
 
-        #gallery-container-tunnel {
-            margin: 20px 0 auto; /* Centre le contenu horizontalement */
-            text-align: center; /* Centre le texte et les éléments à l'intérieur */
+      
+        #image-container-adt img {
+            width: 180%;
+            height: auto;
+            position: relative;
+            left: -3.5cm;
+        }
+
+        #image-container-adt {
+            display: inline-block;
+            margin: 0 auto;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #gallery-container-adt {
+            margin: 0 auto;
+            text-align: center;
+        }
+
+      
+        .navigation-button {
+            background-color: black;
+            color: white;
+            border: 2px solid black;
+            padding: 5px 10px;
+            font-family: 'UnifrakturMaguntia', serif;
+            font-size: 18px;
+            cursor: pointer;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+            margin-top: 40px;
+        }
+
+        .previous-button {
+            margin-right: 20px;
+            position: relative;
+            margin-right: 40px;
+        }
+
+        .previous-button::before {
+            content: '⬅';
+            position: absolute;
+            left: -200px;
+            font-size: 24px;
+            color: white;
+            top: -500px;
+            
+        }
+
+        .next-button {
+            margin-left: 20px;
+            position: relative;
+            margin-right: 40px;
+        }
+
+        .next-button::after {
+            content: '➡';
+            position: absolute;
+            right: -200px;
+            font-size: 24px;
+            color: white;
+            top: -500px;
+        }
+
+        .navigation-button:hover {
+            background-color: white;
+            color: black;
+            border-color: black;
+        }
+
+ 
+        .navigation-button:active {
+            transform: scale(0.95);
         }
         
     </style>
@@ -167,8 +241,9 @@
             <div id="image-container-la-pierre">
                 <img id="gallery-image-la-pierre" src="static/La_pierre0.jpeg" alt="La pierre 0">
             </div>
-            <button onclick="previousImageLaPierre()">Page précédente</button>
-            <button onclick="nextImageLaPierre()">Page suivante</button>
+            <br>
+            <button class="navigation-button previous-button" onclick="previousImageLaPierre()">&#8592; Page précédente</button>
+            <button class="navigation-button next-button" onclick="nextImageLaPierre()">Page suivante &#8594;</button>
         </div>
         <!-- Galerie de projet 2 -->
         <div id="gallery-container-roland">
@@ -176,30 +251,35 @@
             <div id="image-container-roland">
                 <img id="gallery-image-roland" src="static/Roland_0.jpeg" alt="Roland 0">
             </div>
-            <button onclick="previousImageRoland()">Page précédente</button>
-            <button onclick="nextImageRoland()">Page suivante</button>
+            <br>
+            <button class="navigation-button previous-button" onclick="previousImageRoland()">&#8592; Page précédente</button>
+            <button class="navigation-button next-button" onclick="nextImageRoland()">Page suivante &#8594;</button>
         </div>
         <!-- Galerie de projet 3 -->
         <div id="gallery-container-petko">
-            <h3>Projet 3 - Petko (roman policier)</h3>
-            <p><a href="static/petko.pdf" download>Télécharger le PDF</a></p>
-            <!-- Afficher le PDF dans la page avec la possibilité de faire défiler les pages -->
-            <div id="pdf-container-petko">
-                 <iframe src="static/petko.pdf" style="width: 50%; height: 100vh; border: none;"></iframe>
+            <!-- Galerie de projet 1 -->
+            <h3>Projet 3 - Petko (Roman)</h3>
+            <div id="image-container-petko">
+                <img id="gallery-image-petko" src="static/Petko0.jpeg" alt="Petko 0">
             </div>
+            <br>
+            <button class="navigation-button previous-button" onclick="previousImagePetko()">&#8592; Page précédente</button>
+            <button class="navigation-button next-button" onclick="nextImagePetko()">Page suivante &#8594;</button>
         </div>
         <!-- Galerie de projet 4 -->
-        <div id="gallery-container-tunnel">
+        <div id="gallery-container-adt">
             <h3>Projet 4 - Au bout du tunnel (nouvelle)</h3>
-            <p><a href="static/Au_bout_du_tunnel.pdf" download>Télécharger le PDF</a></p>
-            <!-- Afficher le PDF dans la page avec la possibilité de faire défiler les pages -->
-            <div id="pdf-container-tunnel">
-                <iframe src="static/Au_bout_du_tunnel.pdf" style="width: 50%; height: 100vh; border: none;"></iframe>
+            <div id="image-container-adt">
+                <img id="gallery-image-adt" src="static/ADT0.jpeg" alt="ADT 0">
             </div>
+            <br>
+            <button class="navigation-button previous-button" onclick="previousImageADT()">&#8592; Page précédente</button>
+            <button class="navigation-button next-button" onclick="nextImageADT()">Page suivante &#8594;</button>
         </div>
     </div>
 
-
+    <br><br>
+    
     <div id="contacts" class="section" style="border: 2px solid white; padding: 20px;">
     <h2>Contact</h2>
     <div style="max-width: 800px; margin: 0 auto; display: flex; align-items: center;">
@@ -266,6 +346,13 @@
         var currentImageIndexRoland = 0; // Commence à 0 car la première image est la couverture puis Roland_1.jpeg
         var numImagesRoland = 57; // Nombre total de pages de la bande dessinée Roland
 
+        // Variables pour la galerie d'images de Petko
+        var currentImageIndexPetko = 0; // Commence à 0 car la première image est la couverture puis Petko 1.jpeg
+        var numImagesPetko = 10; // Nombre total de pages de la bande dessinée Petko
+        
+        // Variables pour la galerie d'images de Au bout du tunnel
+        var currentImageIndexADT = 0; // Commence à 0 car la première image est la couverture puis ADT 1.jpeg
+        var numImagesADT = 14; // Nombre total de pages de la bande dessinée Petko
 
         // Fonction pour afficher l'image suivante pour La pierre
         function nextImageLaPierre() {
@@ -304,6 +391,45 @@
             imageElement.src = "static/Roland_" + currentImageIndexRoland + ".jpeg";
             imageElement.alt = "Roland " + currentImageIndexRoland;
         }
+
+        // Fonction pour afficher l'image suivante pour Petko
+        function nextImagePetko() {
+            currentImageIndexPetko = (currentImageIndexPetko + 1) % numImagesPetko;
+            updateImagePetko();
+        }
+
+        // Fonction pour afficher l'image précédente pour Petko
+        function previousImagePetko() {
+            currentImageIndexPetko = (currentImageIndexPetko - 1 + numImagesPetko) % numImagesPetko;
+            updateImagePetko();
+        }
+
+        // Fonction pour mettre à jour l'image affichée pour Petko
+        function updateImagePetko() {
+            var imageElement = document.getElementById("gallery-image-petko");
+            imageElement.src = "static/Petko" + currentImageIndexPetko + ".jpeg";
+            imageElement.alt = "Petko " + currentImageIndexPetko;
+        }
+
+        // Fonction pour afficher l'image suivante pour ADT
+        function nextImageADT() {
+            currentImageIndexADT = (currentImageIndexADT + 1) % numImagesADT;
+            updateImageADT();
+        }
+
+        // Fonction pour afficher l'image précédente pour ADT
+        function previousImageADT() {
+            currentImageIndexADT = (currentImageIndexADT - 1 + numImagesADT) % numImagesADT;
+            updateImageADT();
+        }
+
+        // Fonction pour mettre à jour l'image affichée pour ADT
+        function updateImageADT() {
+            var imageElement = document.getElementById("gallery-image-adt");
+            imageElement.src = "static/ADT" + currentImageIndexADT + ".jpeg";
+            imageElement.alt = "Petko " + currentImageIndexADT;
+        }
+
 
         // Appel initial pour charger la première image de La pierre
         updateImageLaPierre();
