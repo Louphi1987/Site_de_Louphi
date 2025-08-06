@@ -150,7 +150,45 @@
             text-align: center;
         }
 
-      
+        .btn-acheter-nft {
+          display: inline-block;
+          background-color: rgb(0, 255, 128);
+          color: white;
+          padding: 12px 30px;
+          font-size: 18px;
+          font-weight: 600;
+          text-decoration: none;
+          border-radius: 8px;
+          cursor: pointer;
+          transition: background-color 0.3s ease;
+          user-select: none;
+          box-shadow: 0 4px 8px rgba(0, 255, 128, 0.4);
+        }
+
+        .btn-acheter-nft:hover {
+          background-color: rgb(0, 200, 100);
+        }
+
+        .btn-acheter-nft:active {
+          background-color: rgb(0, 150, 75);
+          box-shadow: 0 2px 4px rgba(0, 150, 75, 0.6);
+          transform: translateY(2px);
+        }
+        .help-btn {
+          background: none;
+          border: none;
+          color: #444;
+          font-size: 16px;
+          cursor: pointer;
+          font-family: Arial, sans-serif;
+          text-decoration: underline;
+          transition: color 0.2s ease;
+          padding: 4px 8px;
+        }
+
+        .help-btn:hover {
+          color: #00994d; /* vert foncé au survol */
+        }
         .navigation-button {
             background-color: black;
             color: white;
@@ -258,6 +296,39 @@
             <button class="navigation-button previous-button" onclick="previousImageLaPierre()">&#8592; Page précédente</button>
             <button class="navigation-button next-button" onclick="nextImageLaPierre()">Page suivante &#8594;</button>
         </div>
+        <div style="text-align: center; margin-top: 30px;">
+          <div style="display: inline-flex; align-items: center; gap: 10px; justify-content: center;">
+            <a href="https://opensea.io/collection/loufis-art" target="_blank" rel="noopener noreferrer"
+               class="btn-acheter-nft">
+              Acheter des NFT
+            </a>
+
+            <!-- Point d'attention -->
+            <button class="help-btn" id="infoBtn" aria-label="Comment acheter des NFT ?">
+              ❓ Comment faire ?
+            </button>
+          </div>
+        </div>
+        <div id="infoModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" aria-describedby="modalDesc" tabindex="-1" style="display:none;">
+      <div class="modal-content" style="max-width: 450px; margin: 100px auto; background: white; padding: 20px; border-radius: 8px; box-shadow: 0 0 15px rgba(0,0,0,0.3); position: relative;">
+        <h2 id="modalTitle" style="margin-top:0; color: black;">Comment acheter des NFT ?</h2>
+        <div id="modalDesc" style="font-size: 15px; line-height: 1.4; color: #333;">
+          <ol style="padding-left: 20px;">
+            <li>Installez un portefeuille compatible, par exemple MetaMask : <a href="https://metamask.io/" target="_blank" rel="noopener noreferrer">https://metamask.io/</a></li>
+            <li>Créez ensuite un portefeuille</li>
+            <li>Ajoutez le réseau Polygon (Matic) à MetaMask (voir <a href="https://polygon.technology/blog/getting-started-with-metamask-on-polygon" target="_blank" rel="noopener noreferrer">guide officiel</a>)</li>
+            <li>Ajoutez des fonds en MATIC sur Polygon à votre portefeuille</li>
+            <li>Retournez sur OpenSea, connectez votre wallet en cliquant sur "Connect Wallet"</li>
+            <li>Sélectionnez votre NFT préféré et cliquez sur "Buy Now"</li>
+            <li>Confirmez la transaction dans MetaMask</li>
+          </ol>
+          <p>Si vous êtes débutant, prenez le temps de bien comprendre les étapes. Même si mes NFT ne sont pas chers, acheter un NFT implique des frais de transaction (gas fees).</p>
+        </div>
+        <button id="closeModalBtn" aria-label="Fermer la fenêtre" style="display: block; margin: 20px auto 0; padding: 8px 18px; font-size: 16px; cursor: pointer; background-color: rgb(0,255,128); border: none; border-radius: 6px; color: white;">
+          Fermer
+        </button>
+      </div>
+    </div>
         <!-- Galerie de projet 2 -->
         <div id="gallery-container-roland">
             <h3>Projet 2 - Roland (bande dessinée)</h3>
@@ -268,6 +339,15 @@
             <button class="navigation-button previous-button" onclick="previousImageRoland()">&#8592; Page précédente</button>
             <button class="navigation-button next-button" onclick="nextImageRoland()">Page suivante &#8594;</button>
         </div>
+        <div style="text-align: center; margin-top: 30px;">
+          <div style="display: inline-flex; align-items: center; gap: 10px; justify-content: center;">
+            <a href="https://opensea.io/collection/loufis-art" target="_blank" rel="noopener noreferrer"
+               class="btn-acheter-nft">
+              Acheter des NFT
+            </a>
+          </div>
+        </div>
+  
         <!-- Galerie de projet 3 -->
         <div id="gallery-container-petko">
             <!-- Galerie de projet 1 -->
@@ -279,6 +359,15 @@
             <button class="navigation-button previous-button" onclick="previousImagePetko()">&#8592; Page précédente</button>
             <button class="navigation-button next-button" onclick="nextImagePetko()">Page suivante &#8594;</button>
         </div>
+        <div style="text-align: center; margin-top: 30px;">
+          <div style="display: inline-flex; align-items: center; gap: 10px; justify-content: center;">
+            <a href="https://opensea.io/collection/loufis-art" target="_blank" rel="noopener noreferrer"
+               class="btn-acheter-nft">
+              Acheter des NFT
+            </a>
+          </div>
+        </div>
+  
         <!-- Galerie de projet 4 -->
         <div id="gallery-container-adt">
             <h3>Projet 4 - Au bout du tunnel (nouvelle)</h3>
@@ -289,8 +378,17 @@
             <button class="navigation-button previous-button" onclick="previousImageADT()">&#8592; Page précédente</button>
             <button class="navigation-button next-button" onclick="nextImageADT()">Page suivante &#8594;</button>
         </div>
-    </div>
+        <div style="text-align: center; margin-top: 30px;">
+          <div style="display: inline-flex; align-items: center; gap: 10px; justify-content: center;">
+            <a href="https://opensea.io/collection/loufis-art" target="_blank" rel="noopener noreferrer"
+               class="btn-acheter-nft">
+              Acheter des NFT
+            </a>
 
+          </div>
+        </div>
+    </div>
+   
     <br><br>
     <div style="text-align: center;">
         <img src="static/Finial.png" alt="Finial" style="width: 200px; height: auto;">
@@ -323,6 +421,25 @@
                 <p>Email : <a href="mailto:louisphilippe.oeuvres@gmail.com">louisphilippe.oeuvres@gmail.com</a></p>
             </div>
         </div>
+        <div style="text-align: center; margin-top: 20px;">
+          <button class="help-btn" id="aboutAuthorBtn" aria-label="À propos de l'auteur">
+            ℹ️ Sur l’auteur
+          </button>
+        </div>
+        <div id="authorModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="authorModalTitle" tabindex="-1" style="display: none;">
+          <div class="modal-content" style="max-width: 450px; margin: 100px auto; background: white; padding: 20px; border-radius: 8px; box-shadow: 0 0 15px rgba(0,0,0,0.3); position: relative;">
+            <h2 id="authorModalTitle" style="margin-top:0; color: black;">À propos de l’auteur</h2>
+            <div style="font-size: 15px; line-height: 1.5; color: #333;">
+              <p>Juriste de formation, je travaille depuis plusieurs années dans le secteur financier.</p>
+              <p>Ma véritable passion ? La fiction.</p>
+              <p>Ces œuvres ont vu le jour principalement pendant la période du COVID, un moment suspendu où j’ai pu libérer ma créativité.</p>
+              <p>Entre récits illustrés et nouvelles, chaque projet est une invitation à explorer un univers singulier, né du contraste entre rigueur professionnelle et liberté artistique.</p>
+            </div>
+            <button id="closeAuthorModalBtn" aria-label="Fermer la fenêtre" style="display: block; margin: 20px auto 0; padding: 8px 18px; font-size: 16px; cursor: pointer; background-color: rgb(0,255,128); border: none; border-radius: 6px; color: white;">
+              Fermer
+            </button>
+          </div>
+        </div>
             
         
         <!-- Colonne gauche pour l'image -->
@@ -333,6 +450,60 @@
         
 
     <script>
+    
+               const authorBtn = document.getElementById('aboutAuthorBtn');
+                  const authorModal = document.getElementById('authorModal');
+                  const closeAuthorModalBtn = document.getElementById('closeAuthorModalBtn');
+
+                  authorBtn.addEventListener('click', () => {
+                    authorModal.style.display = 'flex';
+                    authorModal.focus();
+                  });
+
+                  closeAuthorModalBtn.addEventListener('click', () => {
+                    authorModal.style.display = 'none';
+                  });
+
+                  window.addEventListener('click', e => {
+                    if (e.target === authorModal) {
+                      authorModal.style.display = 'none';
+                    }
+                  });
+
+                  document.addEventListener('keydown', e => {
+                    if (e.key === 'Escape' && authorModal.style.display === 'flex') {
+                      authorModal.style.display = 'none';
+                    }
+                  });
+              
+              
+              const modal = document.getElementById('infoModal');
+              const closeBtn = document.getElementById('closeModalBtn');
+              const infoButtons = document.querySelectorAll('#infoBtn');
+
+              infoButtons.forEach(btn => {
+                btn.addEventListener('click', () => {
+                  modal.style.display = 'flex';
+                  modal.focus();
+                });
+              });
+
+              closeBtn.addEventListener('click', () => {
+                modal.style.display = 'none';
+              });
+
+              window.addEventListener('click', e => {
+                if (e.target === modal) {
+                  modal.style.display = 'none';
+                }
+              });
+
+              document.addEventListener('keydown', e => {
+                if (e.key === 'Escape') {
+                  modal.style.display = 'none';
+                }
+              });
+                
         // Récupérer tous les liens du menu
         const menuLinks = document.querySelectorAll('.menu-link');
         
