@@ -286,8 +286,16 @@
     /* responsive */
     @media (max-width: 768px) {
       #header {
-        flex-direction: column;
-        gap: 15px;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        justify-content: flex-start;
+        padding: 10px;
+      }
+    
+      #header a.menu-link {
+        white-space: nowrap;
+        flex: 0 0 auto;
+        padding: 10px 16px;
       }
       .gallery img {
         max-width: 95%;
