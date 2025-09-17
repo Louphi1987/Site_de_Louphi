@@ -10,241 +10,293 @@
         window.location.href = '#Accueil';
     </script>
     <style>
-        body {
-            background-color: #2e482e;
-            color: white;
-            margin: 0;
-            padding: 0;
-        }
+    /* variables de couleur */
+    :root {
+      --bg-main: #121212;
+      --bg-header: #1f1f1f;
+      --bg-panel: #1a1a1a;
+      --text-main: #e0e0e0;
+      --text-muted: #a0a0a0;
+      --accent: #00ff80;
+      --accent-hover: #00cc66;
+      --btn-bg: #00ff80;
+      --btn-bg-active: #00a64d;
+    }
 
-        #header {
-            background-color: #1a1a1a;
-            color: white;
-            padding: 10px 0;
-            text-align: center;
-        }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-        #header a {
-            color: white;
-            text-decoration: none;
-            margin: 0 20px;
-        }
+    body {
+      background: radial-gradient(ellipse at center, #000000 0%, #1a1a1a 40%, #3a3a3a 85%, #5a5a5a 100%);
+      color: var(--text-main);
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
+    }
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
 
-        #title {
-            background-color: #2e482e;
-            padding: 20px;
-            text-align: center;
-        }
-        
-        .citation {
-            font-family: "Apple Chancery", cursive;
-            font-size: 22px;
-            text-align: center;
-            margin-top: 20px;
-        }
+    #header {
+      background-color: var(--bg-header);
+      padding: 15px 20px;
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    #header a.menu-link {
+      font-size: 18px;
+      color: var(--text-main);
+      padding: 5px 10px;
+      transition: color 0.3s, background-color 0.3s;
+      border-radius: 4px;
+    }
+    #header a.menu-link:hover {
+      background-color: var(--accent);
+      color: var(--bg-main);
+    }
 
-        h2 {
-            margin-bottom: 80px;
-        }
-        
-        h3 {
-            margin-bottom: 20px;
-            font-size: 28px;
-        }
+    .section {
+      padding: 60px 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
 
+    #accueil {
+      text-align: center;
+    }
 
-        #oeuvres #oeuvres-couverture,
-        #oeuvres #oeuvres-communique {
-            width: 100%;
-            height: auto;
-            display: block;
-            margin: 20px auto;
-        }
+    .citation {
+      font-family: "Apple Chancery", cursive;
+      font-size: 22px;
+      margin: 20px 0;
+      color: var(--text-muted);
+    }
 
-        #fin {
-            background-color: white;
-            color: black;
-            text-align: center;
-            padding: 20px;
-            margin-top: 20px;
-        }
+    #accueil img {
+      margin-top: 40px;
+      max-width: 250px;
+      width: 80%;
+      height: auto;
+    }
 
-        #image-container-la-pierre img {
-            width: 50%;
-            height: auto;
-        }
+    #oeuvres #title h1 {
+      font-size: 36px;
+      margin-bottom: 30px;
+      color: var(--accent);
+      text-align: center; /* ✅ Ajouté */
+    }
 
-        #image-container-la-pierre {
-            display: inline-block;
-            margin: 0 auto;
-        }
+    #oeuvres img.couverture,
+    #oeuvres img.communique {
+      max-width: 90%;
+      height: auto;
+      margin: 20px auto;
+      display: block;
+      border: 2px solid var(--bg-panel);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+    }
 
-        #gallery-container-la-pierre {
-            margin: 0 auto;
-            text-align: center;
-        }
+    #oeuvres p {
+      font-size: 18px;
+      color: var(--text-main);
+      text-align: center;
+      margin-top: 20px;
+    }
 
-      
-        #image-container-roland img {
-            width: 50%;
-            height: auto;
-        }
+    h2 {
+      font-size: 32px;
+      margin-bottom: 40px;
+      text-align: center;
+      color: var(--accent);
+    }
+    h3 {
+      font-size: 28px;
+      margin-bottom: 20px;
+      color: var(--text-main);
+      text-align: center;
+    }
 
-        #image-container-roland {
-            display: inline-block;
-            margin: 0 auto;
-        }
+    .gallery {
+      text-align: center;
+      margin-bottom: 50px;
+    }
 
-        #gallery-container-roland {
-            margin: 0 auto;
-            text-align: center;
-        }
+    .gallery img,
+    #projets img {
+      max-width: 600px;
+      width: 90%;
+      margin: 0 auto;
+      display: block;
+      height: auto;
+      border: 2px solid var(--bg-panel);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+    }
 
-        #image-container-petko img {
-            width: 180%;
-            height: auto;
-            position: relative;
-            left: -3.5cm;
-        }
-        @media (max-width: 768px) {
-            #image-container-petko img {
-                width: 50%;
-                left: 0;
-            }
-        }
+    #projets .navigation-button {
+      margin: 10px;
+    }
 
-        #image-container-petko {
-            display: inline-block;
-            margin: 0 auto;
-        }
+    #projets .previous-button,
+    #projets .next-button {
+      display: inline-block;
+    }
 
-        #gallery-container-petko {
-            margin: 0 auto;
-            text-align: center;
-        }
+    #projets div[id^="gallery-container"] {
+      text-align: center; 
+    }
+    #contacts h2 {
+      text-align: center;
+      color: var(--accent);
+    }
+    .navigation-button {
+      background-color: var(--bg-panel);
+      color: var(--accent);
+      border: 2px solid var(--accent);
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      margin: 20px 10px;
+      border-radius: 5px;
+    }
+    .navigation-button:hover {
+      background-color: var(--accent);
+      color: var(--bg-main);
+    }
+    .navigation-button:active {
+      transform: scale(0.95);
+    }
 
-      
-        #image-container-adt img {
-            width: 180%;
-            height: auto;
-            position: relative;
-            left: -3.5cm;
-        }
-        
-        @media (max-width: 768px) {
-            #image-container-adt img {
-                width: 50%;
-                left: 0;
-            }
-        }
+    .btn-acheter-nft {
+      display: inline-block;
+      background-color: var(--btn-bg);
+      color: var(--bg-main);
+      padding: 14px 32px;
+      font-size: 18px;
+      font-weight: 600;
+      text-decoration: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s ease, box-shadow 0.3s ease;
+      box-shadow: 0 4px 8px rgba(0, 255, 128, 0.4);
+    }
+    .btn-acheter-nft:hover {
+      background-color: var(--accent-hover);
+    }
+    .btn-acheter-nft:active {
+      background-color: var(--btn-bg-active);
+      box-shadow: 0 2px 4px rgba(0, 150, 75, 0.6);
+      transform: translateY(2px);
+    }
 
-        #image-container-adt {
-            display: inline-block;
-            margin: 0 auto;
-            justify-content: center;
-            align-items: center;
-        }
+    .help-btn {
+      background: none;
+      border: none;
+      color: var(--accent);
+      font-size: 16px;
+      cursor: pointer;
+      font-family: Arial, sans-serif;
+      text-decoration: underline;
+      transition: color 0.2s ease;
+      padding: 4px 8px;
+    }
+    .help-btn:hover {
+      color: var(--accent-hover);
+    }
 
-        #gallery-container-adt {
-            margin: 0 auto;
-            text-align: center;
-        }
+    /* modal commun */
+    .modal {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.8);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 200;
+    }
+    .modal-content {
+      background: #ffffff;
+      color: #333333;
+      max-width: 500px;
+      width: 90%;
+      padding: 30px;
+      border-radius: 8px;
+      position: relative;
+    }
+    .modal-content h2 {
+      margin-top: 0;
+    }
+    .modal-content button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      font-size: 16px;
+      border: none;
+      border-radius: 5px;
+      background-color: var(--btn-bg);
+      color: var(--bg-main);
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    .modal-content button:hover {
+      background-color: var(--accent-hover);
+    }
 
-        .btn-acheter-nft {
-          display: inline-block;
-          background-color: rgb(0, 255, 128);
-          color: white;
-          padding: 12px 30px;
-          font-size: 18px;
-          font-weight: 600;
-          text-decoration: none;
-          border-radius: 8px;
-          cursor: pointer;
-          transition: background-color 0.3s ease;
-          user-select: none;
-          box-shadow: 0 4px 8px rgba(0, 255, 128, 0.4);
-        }
+    #contacts {
+      text-align: center;
+    }
 
-        .btn-acheter-nft:hover {
-          background-color: rgb(0, 200, 100);
-        }
+    #contacts .contact-content {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+      align-items: flex-start;
+      justify-content: center;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    #contacts .contact-info, #contacts .contact-image {
+      flex: 1 1 300px;
+    }
+    #contacts .contact-info {
+      color: var(--text-main);
+    }
+    #contacts .contact-info a {
+      color: var(--accent);
+    }
+    #contacts img {
+      max-width: 100%;
+      height: auto;
+      border: 2px solid var(--bg-panel);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+    }
 
-        .btn-acheter-nft:active {
-          background-color: rgb(0, 150, 75);
-          box-shadow: 0 2px 4px rgba(0, 150, 75, 0.6);
-          transform: translateY(2px);
-        }
-        .help-btn {
-          background: none;
-          border: none;
-          color: #1e1e1e;
-          font-size: 16px;
-          cursor: pointer;
-          font-family: Arial, sans-serif;
-          text-decoration: underline;
-          transition: color 0.2s ease;
-          padding: 4px 8px;
-        }
-
-        .help-btn:hover {
-          color: #00994d;
-        }
-        .navigation-button {
-            background-color: black;
-            color: white;
-            border: 2px solid black;
-            padding: 5px 10px;
-            font-family: 'UnifrakturMaguntia', serif;
-            font-size: 18px;
-            cursor: pointer;
-            text-transform: uppercase;
-            transition: all 0.3s ease;
-            margin-top: 40px;
-        }
-
-        .previous-button {
-            margin-right: 20px;
-            position: relative;
-            margin-right: 40px;
-        }
-
-        .previous-button::before {
-            content: '⬅';
-            position: absolute;
-            left: -200px;
-            font-size: 24px;
-            color: white;
-            top: -500px;
-            
-        }
-
-        .next-button {
-            margin-left: 20px;
-            position: relative;
-            margin-right: 40px;
-        }
-
-        .next-button::after {
-            content: '➡';
-            position: absolute;
-            right: -200px;
-            font-size: 24px;
-            color: white;
-            top: -500px;
-        }
-
-        .navigation-button:hover {
-            background-color: white;
-            color: black;
-            border-color: black;
-        }
-
- 
-        .navigation-button:active {
-            transform: scale(0.95);
-        }
-        
-    </style>
+    /* responsive */
+    @media (max-width: 768px) {
+      #header {
+        flex-direction: column;
+        gap: 15px;
+      }
+      .gallery img {
+        max-width: 95%;
+      }
+      #contacts {
+        flex-direction: column-reverse;
+      }
+    }
+  </style>
 </head>
 <body>
        <div id="header">
