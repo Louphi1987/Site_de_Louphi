@@ -154,6 +154,10 @@
     #projets div[id^="gallery-container"] {
       text-align: center; 
     }
+
+    .project-block {
+      margin-bottom: 60px; /* espace après chaque projet */
+    }
     #contacts h2 {
       text-align: center;
       color: var(--accent);
@@ -346,7 +350,7 @@
 
     <div id="projets" class="section">
         <h2>Projets</h2>
-        <div id="gallery-container-la-pierre">
+        <div id="gallery-container-la-pierre" class="project-block">
             <!-- Galerie de projet 1 -->
             <h3>Projet 1 - La pierre (bande dessinée)</h3>
             <div id="image-container-la-pierre">
@@ -390,7 +394,7 @@
       </div>
     </div>
         <!-- Galerie de projet 2 -->
-        <div id="gallery-container-roland">
+        <div id="gallery-container-roland" class="project-block">
             <h3>Projet 2 - Roland (bande dessinée)</h3>
             <div id="image-container-roland">
                 <img id="gallery-image-roland" src="static/Roland_0.jpeg" alt="Roland 0">
@@ -409,7 +413,7 @@
         </div>
   
         <!-- Galerie de projet 3 -->
-        <div id="gallery-container-petko">
+        <div id="gallery-container-petko" class="project-block">
             <!-- Galerie de projet 1 -->
             <h3>Projet 3 - Petko (Roman)</h3>
             <div id="image-container-petko">
