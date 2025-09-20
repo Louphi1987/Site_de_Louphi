@@ -347,111 +347,120 @@
         <p>D'autres oeuvres seront à venir. N'hésitez pas à vous renseigner dans la rubrique projet pour les projets en cours.</p>
 
     </div>
-
-    <div id="projets" class="section">
-        <h2>Projets</h2>
-        <div id="gallery-container-la-pierre" class="project-block">
-            <!-- Galerie de projet 1 -->
-            <h3>Projet 1 - La pierre (bande dessinée)</h3>
-            <div id="image-container-la-pierre">
-                <img id="gallery-image-la-pierre" src="static/La_pierre0.jpeg" alt="La pierre 0">
-            </div>
-            <br>
+    <section id="projets" class="section">
+      <h2>Projets</h2>
+    
+      <!-- Projet 1 -->
+      <article class="project-block" id="project-la-pierre">
+        <div class="project-gallery" id="gallery-container-la-pierre">
+          <h3>Projet 1 - La pierre (bande dessinée)</h3>
+          <div class="image-wrap" id="image-container-la-pierre">
+            <img id="gallery-image-la-pierre" src="static/La_pierre0.jpeg" alt="La pierre 0">
+          </div>
+    
+          <div class="nav-buttons">
             <button class="navigation-button previous-button" onclick="previousImageLaPierre()">&#8592; Page précédente</button>
             <button class="navigation-button next-button" onclick="nextImageLaPierre()">Page suivante &#8594;</button>
-        </div>
-        <div style="text-align: center; margin-top: 30px;">
-          <div style="display: inline-flex; align-items: center; gap: 10px; justify-content: center;">
-            <a href="https://opensea.io/collection/loufis-art" target="_blank" rel="noopener noreferrer"
-               class="btn-acheter-nft">
+          </div>
+    
+          <div class="project-actions">
+            <a href="https://opensea.io/collection/loufis-art" target="_blank" rel="noopener noreferrer" class="btn-acheter-nft">
               Acheter des NFT
             </a>
-
-            <!-- Point d'attention -->
+    
+            <!-- Bouton d'aide uniquement pour le premier projet -->
             <button class="help-btn" id="infoBtn" aria-label="Comment acheter des NFT ?">
               ❓ Comment faire ?
             </button>
           </div>
         </div>
-        <div id="infoModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" aria-describedby="modalDesc" tabindex="-1" style="display:none;">
-      <div class="modal-content" style="max-width: 450px; margin: 100px auto; background: white; padding: 20px; border-radius: 8px; box-shadow: 0 0 15px rgba(0,0,0,0.3); position: relative;">
-        <h2 id="modalTitle" style="margin-top:0; color: black;">Comment acheter des NFT ?</h2>
-        <div id="modalDesc" style="font-size: 15px; line-height: 1.4; color: #333;">
-          <ol style="padding-left: 20px;">
-            <li>Installez un portefeuille compatible, par exemple MetaMask : <a href="https://metamask.io/" target="_blank" rel="noopener noreferrer">https://metamask.io/</a></li>
-            <li>Créez ensuite un portefeuille</li>
-            <li>Ajoutez le réseau Polygon (Matic) à MetaMask (voir <a href="https://polygon.technology/blog/getting-started-with-metamask-on-polygon" target="_blank" rel="noopener noreferrer">guide officiel</a>)</li>
-            <li>Ajoutez des fonds en MATIC sur Polygon à votre portefeuille</li>
-            <li>Retournez sur OpenSea, connectez votre wallet en cliquant sur "Connect Wallet"</li>
-            <li>Sélectionnez votre NFT préféré et cliquez sur "Buy Now"</li>
-            <li>Confirmez la transaction dans MetaMask</li>
-          </ol>
-          <p>Si vous êtes débutant, prenez le temps de bien comprendre les étapes. Même si mes NFT ne sont pas chers, acheter un NFT implique des frais de transaction (gas fees).</p>
-        </div>
-        <button id="closeModalBtn" aria-label="Fermer la fenêtre" style="display: block; margin: 20px auto 0; padding: 8px 18px; font-size: 16px; cursor: pointer; background-color: rgb(0,255,128); border: none; border-radius: 6px; color: white;">
-          Fermer
-        </button>
-      </div>
-    </div>
-        <!-- Galerie de projet 2 -->
-        <div id="gallery-container-roland" class="project-block">
-            <h3>Projet 2 - Roland (bande dessinée)</h3>
-            <div id="image-container-roland">
-                <img id="gallery-image-roland" src="static/Roland_0.jpeg" alt="Roland 0">
-            </div>
-            <br>
+      </article>
+    
+      <!-- Projet 2 -->
+      <article class="project-block" id="project-roland">
+        <div class="project-gallery" id="gallery-container-roland">
+          <h3>Projet 2 - Roland (bande dessinée)</h3>
+          <div class="image-wrap" id="image-container-roland">
+            <img id="gallery-image-roland" src="static/Roland_0.jpeg" alt="Roland 0">
+          </div>
+    
+          <div class="nav-buttons">
             <button class="navigation-button previous-button" onclick="previousImageRoland()">&#8592; Page précédente</button>
             <button class="navigation-button next-button" onclick="nextImageRoland()">Page suivante &#8594;</button>
-        </div>
-        <div style="text-align: center; margin-top: 30px;">
-          <div style="display: inline-flex; align-items: center; gap: 10px; justify-content: center;">
-            <a href="https://opensea.io/collection/loufis-art" target="_blank" rel="noopener noreferrer"
-               class="btn-acheter-nft">
+          </div>
+    
+          <div class="project-actions">
+            <a href="https://opensea.io/collection/loufis-art" target="_blank" rel="noopener noreferrer" class="btn-acheter-nft">
               Acheter des NFT
             </a>
           </div>
         </div>
-  
-        <!-- Galerie de projet 3 -->
-        <div id="gallery-container-petko" class="project-block">
-            <!-- Galerie de projet 1 -->
-            <h3>Projet 3 - Petko (Roman)</h3>
-            <div id="image-container-petko">
-                <img id="gallery-image-petko" src="static/Petko0.jpeg" alt="Petko 0">
-            </div>
-            <br>
+      </article>
+    
+      <!-- Projet 3 -->
+      <article class="project-block" id="project-petko">
+        <div class="project-gallery" id="gallery-container-petko">
+          <h3>Projet 3 - Petko (Roman)</h3>
+          <div class="image-wrap" id="image-container-petko">
+            <img id="gallery-image-petko" src="static/Petko0.jpeg" alt="Petko 0">
+          </div>
+    
+          <div class="nav-buttons">
             <button class="navigation-button previous-button" onclick="previousImagePetko()">&#8592; Page précédente</button>
             <button class="navigation-button next-button" onclick="nextImagePetko()">Page suivante &#8594;</button>
-        </div>
-        <div style="text-align: center; margin-top: 30px;">
-          <div style="display: inline-flex; align-items: center; gap: 10px; justify-content: center;">
-            <a href="https://opensea.io/collection/loufis-art" target="_blank" rel="noopener noreferrer"
-               class="btn-acheter-nft">
+          </div>
+    
+          <div class="project-actions">
+            <a href="https://opensea.io/collection/loufis-art" target="_blank" rel="noopener noreferrer" class="btn-acheter-nft">
               Acheter des NFT
             </a>
           </div>
         </div>
-  
-        <!-- Galerie de projet 4 -->
-        <div id="gallery-container-adt">
-            <h3>Projet 4 - Au bout du tunnel (nouvelle)</h3>
-            <div id="image-container-adt">
-                <img id="gallery-image-adt" src="static/ADT0.jpeg" alt="ADT 0">
-            </div>
-            <br>
+      </article>
+    
+      <!-- Projet 4 -->
+      <article class="project-block" id="project-adt">
+        <div class="project-gallery" id="gallery-container-adt">
+          <h3>Projet 4 - Au bout du tunnel (nouvelle)</h3>
+          <div class="image-wrap" id="image-container-adt">
+            <img id="gallery-image-adt" src="static/ADT0.jpeg" alt="ADT 0">
+          </div>
+    
+          <div class="nav-buttons">
             <button class="navigation-button previous-button" onclick="previousImageADT()">&#8592; Page précédente</button>
             <button class="navigation-button next-button" onclick="nextImageADT()">Page suivante &#8594;</button>
-        </div>
-        <div style="text-align: center; margin-top: 30px;">
-          <div style="display: inline-flex; align-items: center; gap: 10px; justify-content: center;">
-            <a href="https://opensea.io/collection/loufis-art" target="_blank" rel="noopener noreferrer"
-               class="btn-acheter-nft">
+          </div>
+    
+          <div class="project-actions">
+            <a href="https://opensea.io/collection/loufis-art" target="_blank" rel="noopener noreferrer" class="btn-acheter-nft">
               Acheter des NFT
             </a>
-
           </div>
         </div>
-    </div>
+      </article>
+    
+      <!-- Modal unique -->
+      <div id="infoModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" aria-describedby="modalDesc" tabindex="-1" style="display:none;">
+        <div class="modal-content" style="max-width: 450px; margin: 100px auto; background: white; padding: 20px; border-radius: 8px; box-shadow: 0 0 15px rgba(0,0,0,0.3); position: relative;">
+          <h2 id="modalTitle" style="margin-top:0; color: black;">Comment acheter des NFT ?</h2>
+          <div id="modalDesc" style="font-size: 15px; line-height: 1.4; color: #333;">
+            <ol style="padding-left: 20px;">
+              <li>Installez un portefeuille compatible, par ex. MetaMask : <a href="https://metamask.io/" target="_blank" rel="noopener noreferrer">metamask.io</a></li>
+              <li>Créez votre portefeuille</li>
+              <li>Ajoutez le réseau Polygon (Matic) à MetaMask (voir le <a href="https://polygon.technology/blog/getting-started-with-metamask-on-polygon" target="_blank" rel="noopener noreferrer">guide officiel</a>)</li>
+              <li>Ajoutez des fonds en MATIC (Polygon)</li>
+              <li>Sur OpenSea, connectez votre wallet (“Connect Wallet”)</li>
+              <li>Choisissez un NFT → “Buy Now”</li>
+              <li>Confirmez la transaction dans MetaMask</li>
+            </ol>
+            <p>Even if my NFTs are affordable, there are still network fees (“gas”). Take your time if you’re new.</p>
+          </div>
+          <button id="closeModalBtn" aria-label="Fermer la fenêtre" style="display:block; margin:20px auto 0; padding:8px 18px; font-size:16px; cursor:pointer; background-color:#00c27a; border:none; border-radius:6px; color:white;">
+            Fermer
+          </button>
+        </div>
+      </div>
+    </section>
    
     <br><br>
     <div style="text-align: center;">
