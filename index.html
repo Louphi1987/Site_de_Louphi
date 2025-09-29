@@ -6,9 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Rappel: Pour le choix des couleurs à appliquer (codes), aller voir le site avec le panneau de couleur https://www.color-hex.com/ -->
     <title>Mon Site</title>
-    <script>
-        window.location.href = '#Accueil';
-    </script>
     <style>
     /* variables de couleur */
     :root {
@@ -218,45 +215,61 @@
       color: var(--accent-hover);
     }
 
-    /* modal commun */
-    .modal {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0,0,0,0.8);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      z-index: 200;
+    .topbar{
+      position:fixed;
+      top:10px;
+      right:12px;
+      display:flex;
+      gap:10px;
+      z-index:300;
     }
-    .modal-content {
-      background: #ffffff;
-      color: #333333;
-      max-width: 500px;
-      width: 90%;
-      padding: 30px;
-      border-radius: 8px;
+    .lang-toggle button{
+      border:none;
+      background:transparent;
+      padding:4px 8px;
+      border-radius:999px;
+      cursor:pointer;
+      font-size:14px;
+    }
+    .lang-toggle button.active{
+      background:#e5e7eb;
+      font-weight:600;
+    }
+    .modal{
+      position:fixed;
+      inset:0;
+      width:100%;
+      height:100%;
+      background:rgba(0,0,0,0.8);
+      display:none;
+      align-items:center;
+      justify-content:center;
+      z-index:200;
+    }
+    .modal[aria-hidden="false"]{display:flex;}
+    .modal-content{
+      background:#ffffff;
+      color:#333333;
+      max-width:500px;
+      width:90%;
+      padding:30px;
+      border-radius:8px;
+      box-shadow:0 0 15px rgba(0,0,0,0.3);
       position: relative;
+      padding-top: 60px; 
     }
-    .modal-content h2 {
-      margin-top: 0;
+    .modal-content h2{margin-top:0;}
+    .modal-content button.primary{
+      margin-top:20px;
+      padding:10px 20px;
+      font-size:16px;
+      border:none;
+      border-radius:5px;
+      background-color:var(--btn-bg);
+      color:var(--bg-main);
+      cursor:pointer;
     }
-    .modal-content button {
-      margin-top: 20px;
-      padding: 10px 20px;
-      font-size: 16px;
-      border: none;
-      border-radius: 5px;
-      background-color: var(--btn-bg);
-      color: var(--bg-main);
-      cursor: pointer;
-      transition: background-color 0.3s;
-    }
-    .modal-content button:hover {
-      background-color: var(--accent-hover);
-    }
+    .modal-content button.primary:hover{background-color:var(--accent-hover);}
 
     #contacts {
       text-align: center;
@@ -286,8 +299,8 @@
       border: 2px solid var(--bg-panel);
       box-shadow: 0 4px 10px rgba(0,0,0,0.5);
     }
-
-    /* responsive */
+    
+    
     @media (max-width: 768px) {
       #header {
         flex-wrap: nowrap;
@@ -307,7 +320,10 @@
       #contacts {
         flex-direction: column-reverse;
       }
+      
     }
+    img.logo { border: 0; box-shadow: none; }
+    
   </style>
 </head>
 <body>
@@ -368,9 +384,9 @@
               Acheter des NFT
             </a>
     
-            <!-- Bouton d'aide uniquement pour le premier projet -->
+            
             <button class="help-btn" id="infoBtn" aria-label="Comment acheter des NFT ?">
-              ❓ Comment faire ?
+              ❓ Comment faire ? - ❓ How to buy ? 
             </button>
           </div>
         </div>
@@ -439,34 +455,46 @@
         </div>
       </article>
     
-      <!-- Modal unique -->
-      <div id="infoModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" aria-describedby="modalDesc" tabindex="-1" style="display:none;">
-        <div class="modal-content" style="max-width: 450px; margin: 100px auto; background: white; padding: 20px; border-radius: 8px; box-shadow: 0 0 15px rgba(0,0,0,0.3); position: relative;">
-          <h2 id="modalTitle" style="margin-top:0; color: black;">Comment acheter des NFT ?</h2>
-          <div id="modalDesc" style="font-size: 15px; line-height: 1.4; color: #333;">
-            <ol style="padding-left: 20px;">
-              <li>Installez un portefeuille compatible, par ex. MetaMask : <a href="https://metamask.io/" target="_blank" rel="noopener noreferrer">metamask.io</a></li>
-              <li>Créez votre portefeuille</li>
-              <li>Ajoutez le réseau Polygon (Matic) à MetaMask (voir le <a href="https://polygon.technology/blog/getting-started-with-metamask-on-polygon" target="_blank" rel="noopener noreferrer">guide officiel</a>)</li>
-              <li>Ajoutez des fonds en MATIC (Polygon)</li>
-              <li>Sur OpenSea, connectez votre wallet (“Connect Wallet”)</li>
-              <li>Choisissez un NFT → “Buy Now”</li>
-              <li>Confirmez la transaction dans MetaMask</li>
-            </ol>
-            <p>Even if my NFTs are affordable, there are still network fees (“gas”). Take your time if you’re new.</p>
+        
+        <div id="infoModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" aria-describedby="modalDesc" aria-hidden="true">
+          <div class="modal-content">
+            
+            <!-- FR/EN à l’intérieur du pop-up -->
+            <div class="lang-toggle inside-modal" style="position:absolute; top:10px; right:10px; background:#f9f9f9; border-radius:999px; padding:4px;">
+              <button type="button" data-lang="fr" class="active">FR</button>
+              <button type="button" data-lang="en">EN</button>
+            </div>
+
+            <h2 id="modalTitle">Comment acheter des NFT ?</h2>
+            <div id="modalDesc">
+              <ol style="padding-left:20px;">
+                <li>Installez un portefeuille compatible, par ex. MetaMask :
+                  <a href="https://metamask.io/" target="_blank" rel="noopener noreferrer">metamask.io</a></li>
+                <li>Créez votre portefeuille</li>
+                <li>Ajoutez le réseau Polygon (Matic) à MetaMask (voir le
+                  <a href="https://polygon.technology/blog/getting-started-with-metamask-on-polygon" target="_blank" rel="noopener noreferrer">guide officiel</a>)</li>
+                <li>Ajoutez des fonds en MATIC (Polygon)</li>
+                <li>Si nécessaire, échangez des devises (par ex. MATIC → ETH) via un service comme
+                  <a href="https://app.uniswap.org/" target="_blank" rel="noopener noreferrer">Uniswap</a></li>
+                <li>Sur OpenSea, connectez votre wallet (“Connect Wallet”)</li>
+                <li>Choisissez un NFT → “Buy Now”</li>
+                <li>Confirmez la transaction dans MetaMask</li>
+              </ol>
+              <p>Even if my NFTs are affordable, there are still network fees (“gas”). Take your time if you’re new.</p>
+            </div>
+
+            <!-- Bouton centré -->
+            <div style="text-align:center; margin-top:20px;">
+              <button id="closeModalBtn" class="primary">Fermer</button>
+            </div>
           </div>
-          <button id="closeModalBtn" aria-label="Fermer la fenêtre" style="display:block; margin:20px auto 0; padding:8px 18px; font-size:16px; cursor:pointer; background-color:#00c27a; border:none; border-radius:6px; color:white;">
-            Fermer
-          </button>
         </div>
-      </div>
     </section>
-   
     <br><br>
     <div style="text-align: center;">
-        <img src="static/Finial.png" alt="Finial" style="width: 200px; height: auto;">
+        <img class="logo" src="static/Finial.png" alt="Finial" style="width: 200px; height: auto;">
     </div>
-    
+     
     <div id="contacts" class="section">
     <h2>Contact</h2>
         <div style="max-width: 800px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between;">
@@ -509,7 +537,7 @@
                     0-0.213-0.005-0.425-0.014-0.636 0.962-0.695 1.796-1.562 2.457-2.549z"/>
                 </svg>
               </a>
-              <!-- Texte cliquable -->
+              
               <a href="https://x.com/loufisart" target="_blank" rel="noopener noreferrer"
                  style="text-decoration: none; color: white; font-weight: 600;">
                 @loufisart
@@ -519,25 +547,35 @@
         <br>
         <br>
         <div style="text-align: center; margin-top: 50px;">
-          <button class="help-btn" id="aboutAuthorBtn" aria-label="À propos de l'auteur">
-            ℹ️ Sur l’auteur
+          <button class="help-btn" id="aboutAuthorBtn" aria-label="À propos de l'auteur - About the author">
+            ℹ️ Sur l’auteur - About the Author
           </button>
         </div>
-        <div id="authorModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="authorModalTitle" tabindex="-1" style="display: none;">
-          <div class="modal-content" style="max-width: 450px; margin: 100px auto; background: white; padding: 20px; border-radius: 8px; box-shadow: 0 0 15px rgba(0,0,0,0.3); position: relative;">
-            <h2 id="authorModalTitle" style="margin-top:0; color: black;">À propos de l’auteur</h2>
-            <div style="font-size: 15px; line-height: 1.5; color: #333;">
-              <p>Juriste de formation, je travaille depuis plusieurs années dans le secteur financier.</p>
-              <p>Ma véritable passion ? La fiction.</p>
-              <p>Ces œuvres ont vu le jour principalement pendant la période du COVID, un moment suspendu où j’ai pu libérer ma créativité.</p>
-              <p>Entre récits illustrés et nouvelles, chaque projet est une invitation à explorer un univers singulier, né du contraste entre rigueur professionnelle et liberté artistique.</p>
+        <div id="authorModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="authorModalTitle" aria-hidden="true" tabindex="-1">
+          <div class="modal-content" style="max-width: 450px; margin: 100px auto; background: white; padding: 20px; padding-top: 60px; border-radius: 8px; box-shadow: 0 0 15px rgba(0,0,0,0.3); position: relative;">
+            
+            <!-- FR/EN directement dans l’encadré -->
+            <div class="lang-toggle inside-modal" style="position:absolute; top:10px; right:10px; background:#f9f9f9; border-radius:999px; padding:4px;">
+              <button type="button" data-lang="fr" class="active">FR</button>
+              <button type="button" data-lang="en">EN</button>
             </div>
-            <button id="closeAuthorModalBtn" aria-label="Fermer la fenêtre" style="display: block; margin: 20px auto 0; padding: 8px 18px; font-size: 16px; cursor: pointer; background-color: rgb(0,255,128); border: none; border-radius: 6px; color: white;">
-              Fermer
-            </button>
+
+
+            <h2 id="authorModalTitle" style="margin-top:0; color: black;">À propos de l’auteur</h2>
+            <div id="authorModalBody" style="font-size: 15px; line-height: 1.5; color: #333;">
+              <p id="authorP1">Juriste de formation, je travaille depuis plusieurs années dans le secteur financier.</p>
+              <p id="authorP2">Ma véritable passion ? La fiction.</p>
+              <p id="authorP3">Ces œuvres ont vu le jour principalement pendant la période du COVID, un moment suspendu où j’ai pu libérer ma créativité.</p>
+              <p id="authorP4">Entre récits illustrés et nouvelles, chaque projet est une invitation à explorer un univers singulier, né du contraste entre rigueur professionnelle et liberté artistique.</p>
+            </div>
+            <!-- Bouton centré -->
+            <div style="text-align:center;">
+              <button id="closeAuthorModalBtn" aria-label="Fermer la fenêtre" style="margin-top: 20px; padding: 8px 18px; font-size: 16px; cursor: pointer; background-color: rgb(0,255,128); border: none; border-radius: 6px; color: white;">
+                Fermer
+              </button>
+            </div>
           </div>
         </div>
-            
         
         <!-- Colonne gauche pour l'image -->
         <div style="flex: 1; padding-left: 20px;">
@@ -548,77 +586,150 @@
 
     <script>
     
-               const authorBtn = document.getElementById('aboutAuthorBtn');
-                  const authorModal = document.getElementById('authorModal');
-                  const closeAuthorModalBtn = document.getElementById('closeAuthorModalBtn');
+           const authorBtn = document.getElementById('aboutAuthorBtn');
+            const authorModal = document.getElementById('authorModal');
+            const closeAuthorModalBtn = document.getElementById('closeAuthorModalBtn');
 
-                  authorBtn.addEventListener('click', () => {
-                    authorModal.style.display = 'flex';
-                    authorModal.focus();
-                  });
-
-                  closeAuthorModalBtn.addEventListener('click', () => {
-                    authorModal.style.display = 'none';
-                  });
-
-                  window.addEventListener('click', e => {
-                    if (e.target === authorModal) {
-                      authorModal.style.display = 'none';
-                    }
-                  });
-
-                  document.addEventListener('keydown', e => {
-                    if (e.key === 'Escape' && authorModal.style.display === 'flex') {
-                      authorModal.style.display = 'none';
-                    }
-                  });
-              
-              
-              const modal = document.getElementById('infoModal');
-              const closeBtn = document.getElementById('closeModalBtn');
-              const infoButtons = document.querySelectorAll('#infoBtn');
-
-              infoButtons.forEach(btn => {
-                btn.addEventListener('click', () => {
-                  modal.style.display = 'flex';
-                  modal.focus();
-                });
-              });
-
-              closeBtn.addEventListener('click', () => {
-                modal.style.display = 'none';
-              });
-
-              window.addEventListener('click', e => {
-                if (e.target === modal) {
-                  modal.style.display = 'none';
-                }
-              });
-
-              document.addEventListener('keydown', e => {
-                if (e.key === 'Escape') {
-                  modal.style.display = 'none';
-                }
-              });
-                
-        // Récupérer tous les liens du menu
-        const menuLinks = document.querySelectorAll('.menu-link');
-        
-        // Parcourir tous les liens et ajouter un écouteur d'événements
-        menuLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                // Récupérer l'identifiant de la section correspondante
-                const sectionId = link.getAttribute('href').substring(1);
-                
-                // Masquer toutes les sections
-                document.querySelectorAll('.section').forEach(section => {
-                    section.style.display = 'none';
-                });
-                
-                // Afficher uniquement la section correspondante
-                document.getElementById(sectionId).style.display = 'block';
+            authorBtn.addEventListener('click', () => {
+              authorModal.style.display = 'flex';
+              authorModal.focus();
             });
-        });
+            closeAuthorModalBtn.addEventListener('click', () => {
+              authorModal.style.display = 'none';
+            });
+            window.addEventListener('click', e => {
+              if (e.target === authorModal) authorModal.style.display = 'none';
+            });
+            document.addEventListener('keydown', e => {
+              if (e.key === 'Escape' && authorModal.style.display === 'flex') {
+                authorModal.style.display = 'none';
+              }
+            });
+
+            // dictionnaire FR/EN
+            const authorTranslations = {
+              fr: {
+                title: 'À propos de l’auteur',
+                p1: 'Juriste de formation, je travaille depuis plusieurs années dans le secteur financier.',
+                p2: 'Ma véritable passion ? La fiction.',
+                p3: 'Ces œuvres ont vu le jour principalement pendant la période du COVID, un moment suspendu où j’ai pu libérer ma créativité.',
+                p4: 'Entre récits illustrés et nouvelles, chaque projet est une invitation à explorer un univers singulier, né du contraste entre rigueur professionnelle et liberté artistique.',
+                close: 'Fermer'
+              },
+              en: {
+                title: 'About the Author',
+                p1: 'A lawyer by training, I have been working in the financial sector for several years.',
+                p2: 'My true passion? Fiction.',
+                p3: 'Most of these works were created during the COVID period, a suspended moment when I could unleash my creativity.',
+                p4: 'Between illustrated stories and short fiction, each project invites you to explore a unique universe born from the contrast between professional rigor and artistic freedom.',
+                close: 'Close'
+              }
+            };
+
+            function updateAuthorModal(lang){
+              const t=authorTranslations[lang];
+              document.getElementById('authorModalTitle').textContent=t.title;
+              document.getElementById('authorP1').textContent=t.p1;
+              document.getElementById('authorP2').textContent=t.p2;
+              document.getElementById('authorP3').textContent=t.p3;
+              document.getElementById('authorP4').textContent=t.p4;
+              document.getElementById('closeAuthorModalBtn').textContent=t.close;
+            }
+
+            // boutons FR/EN dans l’encadré du modal
+            document.querySelectorAll('#authorModal .lang-toggle button').forEach(btn=>{
+              btn.addEventListener('click',()=>{
+                document.querySelectorAll('#authorModal .lang-toggle button').forEach(b=>b.classList.remove('active'));
+                btn.classList.add('active');
+                updateAuthorModal(btn.dataset.lang);
+              });
+            });
+              
+              
+               const modal = document.getElementById('infoModal');
+              const openBtn = document.getElementById('infoBtn');
+              const closeBtn = document.getElementById('closeModalBtn');
+
+              // Ouverture / fermeture
+              openBtn.addEventListener('click',()=>{ modal.setAttribute('aria-hidden','false'); modal.focus(); });
+              closeBtn.addEventListener('click',()=>{ modal.setAttribute('aria-hidden','true'); });
+              window.addEventListener('click',e=>{ if(e.target===modal){ modal.setAttribute('aria-hidden','true'); }});
+              document.addEventListener('keydown',e=>{ if(e.key==='Escape'){ modal.setAttribute('aria-hidden','true'); }});
+
+              // Traductions
+              const translations = {
+                fr:{
+                  title:'Comment acheter des NFT ?',
+                  steps:[
+                    'Installez un portefeuille compatible, par ex. MetaMask : <a href="https://metamask.io/" target="_blank" rel="noopener noreferrer">metamask.io</a>',
+                    'Créez votre portefeuille',
+                    'Ajoutez le réseau Polygon (Matic) à MetaMask (voir le <a href="https://polygon.technology/blog/getting-started-with-metamask-on-polygon" target="_blank" rel="noopener noreferrer">guide officiel</a>)',
+                    'Ajoutez des fonds en MATIC (Polygon)',
+                    'Si nécessaire, échangez des devises (par ex. MATIC → ETH) via un service comme <a href="https://app.uniswap.org/" target="_blank" rel="noopener noreferrer">Uniswap</a>',
+                    'Sur OpenSea, connectez votre wallet (“Connect Wallet”)',
+                    'Choisissez un NFT → “Buy Now”',
+                    'Confirmez la transaction dans MetaMask'
+                  ],
+                  note:'Même si mes NFTs sont abordables, il y a toujours des frais de réseau (“gas”). Prenez votre temps si vous débutez.',
+                  close:'Fermer'
+                },
+                en:{
+                  title:'How to buy NFTs?',
+                  steps:[
+                    'Install a compatible wallet, e.g. MetaMask: <a href="https://metamask.io/" target="_blank" rel="noopener noreferrer">metamask.io</a>',
+                    'Create your wallet',
+                    'Add the Polygon (Matic) network to MetaMask (see the <a href="https://polygon.technology/blog/getting-started-with-metamask-on-polygon" target="_blank" rel="noopener noreferrer">official guide</a>)',
+                    'Add funds in MATIC (Polygon)',
+                    'If needed, swap currencies (e.g. MATIC → ETH) using a service like <a href="https://app.uniswap.org/" target="_blank" rel="noopener noreferrer">Uniswap</a>',
+                    'On OpenSea, connect your wallet (“Connect Wallet”)',
+                    'Choose an NFT → “Buy Now”',
+                    'Confirm the transaction in MetaMask'
+                  ],
+                  note:'Even if my NFTs are affordable, there are still network fees (“gas”). Take your time if you’re new.',
+                  close:'Close'
+                }
+              };
+
+              // Bascule FR/EN à l’intérieur du pop-up (sélecteurs scoped pour éviter les conflits)
+              const langButtonsInfo = document.querySelectorAll('#infoModal .lang-toggle button');
+              langButtonsInfo.forEach(btn=>{
+                btn.addEventListener('click',()=>{
+                  langButtonsInfo.forEach(b=>b.classList.remove('active'));
+                  btn.classList.add('active');
+                  updateLanguage(btn.dataset.lang);
+                });
+              });
+
+              function updateLanguage(lang){
+                const t = translations[lang];
+                document.getElementById('modalTitle').innerHTML = t.title;
+                const ol = document.querySelector('#modalDesc ol');
+                ol.innerHTML = t.steps.map(s=>`<li>${s}</li>`).join('');
+                document.querySelector('#modalDesc p').textContent = t.note;
+                closeBtn.textContent = t.close;
+
+
+              }
+                                
+                        // Récupérer tous les liens du menu
+                        const menuLinks = document.querySelectorAll('.menu-link');
+                        
+                        // Parcourir tous les liens et ajouter un écouteur d'événements
+                        menuLinks.forEach(link => {
+                            link.addEventListener('click', () => {
+                                e.preventDefault();
+                                // Récupérer l'identifiant de la section correspondante
+                                const sectionId = link.getAttribute('href').substring(1);
+                                
+                                // Masquer toutes les sections
+                                document.querySelectorAll('.section').forEach(section => {
+                                    section.style.display = 'none';
+                                });
+                                
+                                // Afficher uniquement la section correspondante
+                                document.getElementById(sectionId).style.display = 'block';
+                            });
+                        });
 
 
         // Variables pour la galerie d'images de La pierre
@@ -718,21 +829,16 @@
         updateImageLaPierre();
 
 
-        // Récupérer l'élément du conteneur PDF
         const pdfContainer = document.getElementById('pdf-container');
-
-        // Fonction pour ajuster la hauteur du conteneur PDF en fonction de la taille de la fenêtre
-        function adjustPdfContainerHeight() {
+        if (pdfContainer) {
+          function adjustPdfContainerHeight() {
             const windowHeight = window.innerHeight;
-            pdfContainer.style.height = `${windowHeight - 100}px`; // Ajustez 100px selon votre disposition
+            pdfContainer.style.height = `${windowHeight - 100}px`;
+          }
+          adjustPdfContainerHeight();
+          window.addEventListener('resize', adjustPdfContainerHeight);
         }
-
-        // Appel initial pour ajuster la hauteur du conteneur PDF
-        adjustPdfContainerHeight();
-
-        // Ajouter un écouteur d'événements pour ajuster la hauteur lorsque la taille de la fenêtre change
-        window.addEventListener('resize', adjustPdfContainerHeight);
-        
+                
     </script>
 
 </body>
