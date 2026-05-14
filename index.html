@@ -299,6 +299,24 @@
       border: 2px solid var(--bg-panel);
       box-shadow: 0 4px 10px rgba(0,0,0,0.5);
     }
+
+    .btn-commander-livre {
+      display: inline-block;
+      background-color: #B8860B99;
+      color: white;
+      padding: 20px 40px;
+      text-align: center;
+      text-decoration: none;
+      font-size: 20px;
+      font-weight: bold;
+      border-radius: 5px;
+      margin-top: 20px;
+    }
+    
+    .btn-commander-livre:hover {
+      background-color: #B8860B;
+      text-decoration: none;
+    }
     
     
     @media (max-width: 768px) {
@@ -362,6 +380,14 @@
         </div>
         <p>D'autres oeuvres seront à venir. N'hésitez pas à vous renseigner dans la rubrique projet pour les projets en cours.</p>
 
+        <div style="text-align: center; margin-top: 20px;">
+          <a href="https://www.lysbleueditions.com/produit/de-lautre-cote-du-pont/?gad_source=1&gclid=Cj0KCQjw3bm3BhDJARIsAKnHoVVyzycaDLytq5vkOgqjEbm8edUnRK6w6bXYcXihJX0ssit7damdJ5waAmUREALw_wcB"
+             target="_blank"
+             rel="noopener noreferrer"
+             class="btn-commander-livre">
+            CLIQUEZ ICI pour commander "De l'autre côté du pont"
+          </a>
+        </div>
     </div>
     <section id="projets" class="section">
       <h2>Projets</h2>
@@ -405,11 +431,20 @@
             <button class="navigation-button next-button" onclick="nextImageRoland()">Page suivante &#8594;</button>
           </div>
     
-          <div class="project-actions">
-            <a href="https://opensea.io/collection/loufis-art" target="_blank" rel="noopener noreferrer" class="btn-acheter-nft">
-              Acheter des NFT
+          <div class="project-actions" style="text-align: center;">
+          <a href="https://opensea.io/collection/loufis-art" target="_blank" rel="noopener noreferrer" class="btn-acheter-nft">
+            Acheter des NFT
+          </a>
+        
+          <div style="margin-top: 20px;">
+            <a href="https://www.amazon.com/dp/B0GRWZSVHN"
+               target="_blank"
+               rel="noopener noreferrer"
+               class="btn-commander-livre">
+              Acheter la BD
             </a>
           </div>
+        </div>
         </div>
       </article>
     
@@ -502,14 +537,6 @@
         <div style="flex: 1; text-align: left; padding-left: 20px; padding-right: 20px;">
             <p style="font-size: 24px; font-weight: bold; font-style: italic;">Louis-Philippe Pirson</p>
             
-            <!-- Ajout du rectangle brun pour commander le livre -->
-            <div style="margin-top: 20px;">
-                <a href="https://www.lysbleueditions.com/produit/de-lautre-cote-du-pont/?gad_source=1&gclid=Cj0KCQjw3bm3BhDJARIsAKnHoVVyzycaDLytq5vkOgqjEbm8edUnRK6w6bXYcXihJX0ssit7damdJ5waAmUREALw_wcB"
-                   style="display: inline-block; background-color: #B8860B99; color: white; padding: 20px 40px; text-align: center; text-decoration: none; font-size: 20px; font-weight: bold; border-radius: 5px;"
-                   onmouseover="this.style.backgroundColor='#B8860B';" onmouseout="this.style.backgroundColor='#B8860B99';">
-                   CLIQUEZ ICI pour commander "De l'autre côté du pont"
-                </a>
-            </div>
             
             <!-- QR Code (remplace 'static/qrcode.png' par l'URL de ton image QR code) -->
             <div style="text-align: center; margin-top: 20px;">
@@ -716,7 +743,7 @@
                         
                         // Parcourir tous les liens et ajouter un écouteur d'événements
                         menuLinks.forEach(link => {
-                            link.addEventListener('click', () => {
+                            link.addEventListener('click', (e) => {
                                 e.preventDefault();
                                 // Récupérer l'identifiant de la section correspondante
                                 const sectionId = link.getAttribute('href').substring(1);
